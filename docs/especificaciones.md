@@ -44,6 +44,25 @@
 | **Detección de duplicados** | Alerta si se sube el mismo ticket dos veces | 🟡 Media |
 | **Multimoneda** | Soporte EUR/USD para gastos en viajes | 🟢 Nice to have |
 
+### Fase 3 — Lanzamiento (Comercialización)
+
+| Funcionalidad | Descripción | Prioridad |
+|---|---|---|
+| **Suscripciones Stripe** | Pagos para planes Pro / Business | 🟡 Alta |
+| **Límites de uso** | Control de escaneos según plan | 🟡 Alta |
+| **Onboarding** | Guía interactiva para nuevos usuarios | 🟢 Media |
+
+### Fase 4 — Optimización e Inteligencia (Futuro)
+
+| Funcionalidad | Descripción | Prioridad |
+|---|---|---|
+| **Smart Advisor (IA)** | Chatbot para consultas sobre finanzas personales | 🟡 Media |
+| **Modelos Fiscales** | Generación de borradores de impuestos (303, 130) | 🟡 Media |
+| **Conciliación Bancaria** | Matching entre extracto PDF y tickets subidos | 🟢 Baja |
+| **PWA / App Móvil** | Capacidad offline y acceso a cámara directo | 🟡 Media |
+| **Búsqueda Semántica** | Agrupación inteligente de gastos por contexto | 🟢 Baja |
+| **Modo Privacidad** | Interfaz con datos sensibles ocultos (Blur mode) | 🟢 Baja |
+
 ---
 
 ## 🛠️ Stack Tecnológico

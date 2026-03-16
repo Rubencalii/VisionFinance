@@ -85,6 +85,26 @@
 
 ---
 
+## Fase 4 — Optimización e Inteligencia (4–5 semanas)
+**Objetivo:** Diferenciación competitiva mediante IA avanzada
+
+### Semana 18–19 · Smart Advisor
+- Lógica de embedding para búsqueda semántica en tickets
+- Chatbot integrado con Claude para consultas financieras
+- Notificaciones inteligentes de ahorro
+
+### Semana 20–21 · Fiscalidad y PWA
+- Lógica de cálculo de IVA/IRPF trimestral
+- Generación de informes fiscales sugerido
+- Optimización PWA para móviles (cámara y offline)
+
+### Semana 22 · Conciliación y Pulido
+- Parser de extractos bancarios (PDF/CSV)
+- Algoritmo de matching de gastos
+- Modo privacidad (UI Blur)
+
+---
+
 ## Resumen
 
 | Fase | Objetivo | Duración |
