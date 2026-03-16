@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/user';
 import ocrRoutes from './routes/ocr';
+import ticketRoutes from './routes/ticket';
 import { authMiddleware } from './middleware/auth';
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.use('/api/auth', authRoutes);
 // Protected routes
 app.use('/api/user', userRoutes);
 app.use('/api/ocr', ocrRoutes);
+app.use('/api/tickets', ticketRoutes);
 
 // Mock Health check
 app.get('/api/health', (req: Request, res: Response) => {

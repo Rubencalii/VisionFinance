@@ -5,8 +5,9 @@ import LoginForm from './components/auth/LoginForm';
 import RegisterForm from './components/auth/RegisterForm';
 import Dashboard from './components/dashboard/Dashboard';
 import Settings from './components/settings/Settings';
+import History from './components/tickets/History';
 import type { Session } from '@supabase/supabase-js';
-import { LayoutDashboard, Settings as SettingsIcon, LogOut, Cpu } from 'lucide-react';
+import { LayoutDashboard, Settings as SettingsIcon, LogOut, Cpu, Clock } from 'lucide-react';
 
 function App() {
   const [session, setSession] = useState<Session | null>(null);
@@ -71,6 +72,9 @@ function App() {
                     <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-900 transition-colors text-slate-300 hover:text-white group">
                       <LayoutDashboard className="w-5 h-5 text-slate-500 group-hover:text-blue-400" /> Dashboard
                     </Link>
+                    <Link to="/history" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-900 transition-colors text-slate-300 hover:text-white group">
+                      <Clock className="w-5 h-5 text-slate-500 group-hover:text-blue-400" /> Historial
+                    </Link>
                     <Link to="/settings" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-900 transition-colors text-slate-300 hover:text-white group">
                       <SettingsIcon className="w-5 h-5 text-slate-500 group-hover:text-blue-400" /> Configuración
                     </Link>
@@ -88,6 +92,7 @@ function App() {
                 <main className="flex-1 overflow-y-auto p-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-950 to-slate-950">
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
+                    <Route path="/history" element={<History />} />
                     <Route path="/settings" element={<Settings />} />
                   </Routes>
                 </main>

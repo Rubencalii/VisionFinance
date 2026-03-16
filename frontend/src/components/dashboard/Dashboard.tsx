@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
 import TicketUpload from '../tickets/TicketUpload';
 import TicketForm from '../tickets/TicketForm';
-import { Sparkles, History, TrendingUp, Wallet } from 'lucide-react';
+import { Sparkles, History as HistoryIcon, TrendingUp, Wallet } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Dashboard: React.FC = () => {
-  const [ticketData, setTicketData] = useState<any>(null);
+  const [ticketData, setTicketData] = useState<{
+    merchant: string;
+    date: string;
+    subtotal: number;
+    vat: number;
+    total: number;
+    category: string;
+  } | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
 
@@ -43,9 +49,9 @@ const Dashboard: React.FC = () => {
       {/* Header stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
-          { label: 'Gastos Mes', value: '1.240,50€', icon: Wallet, color: 'text-blue-500' },
-          { label: 'Ahorro', value: '15%', icon: TrendingUp, color: 'text-emerald-500' },
-          { label: 'Tickets Escaneados', value: '12', icon: History, color: 'text-purple-500' },
+          { label: 'Gastos Mes', value: `${(stats?.totalSpent || 0).toFixed(2)}€`, icon: Wallet, color: 'text-blue-500' },
+          { label: 'Ratio Ahorro', value: '15%', icon: TrendingUp, color: 'text-emerald-500' },
+          { label: 'Tickets Escaneados', value: stats?.count || 0, icon: HistoryIcon, color: 'text-purple-500' },
         ].map((stat, i) => (
           <motion.div 
             key={i}

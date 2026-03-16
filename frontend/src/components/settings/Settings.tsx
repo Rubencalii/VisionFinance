@@ -23,8 +23,8 @@ const Settings: React.FC = () => {
       });
       const data = await res.json();
       setHasApiKey(data.hasApiKey);
-    } catch (err) {
-      console.error('Error fetching settings status:', err);
+    } catch {
+      console.error('Error fetching settings status');
     } finally {
       setStatusLoading(false);
     }

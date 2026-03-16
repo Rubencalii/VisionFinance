@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Scan, Store, Calendar, CreditCard, Tag, Check, Loader2 } from 'lucide-react';
+import { Store, Calendar, CreditCard, Tag, Check, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TicketData {
@@ -23,12 +23,34 @@ const TicketForm: React.FC<TicketFormProps> = ({ initialData, imageUrl }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Aquí iría la lógica para guardar el ticket en el backend
-    console.log('Guardando ticket:', { ...formData, imageUrl });
-    setTimeout(() => {
+    
+    try {
+      const token = (await JSON.parse(localStorage.getItem('sb-vjofvpsmivlyfzhptxqb-auth-token') || '{}')).access_token;
+      const response = await fetch('http://localhost:3000/api/tickets', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          ...formData,
+          categoryName: formData.category,
+          imageUrl
+        }),
+      });
+
+      if (response.ok) {
+        alert('¡Ticket guardado correctamente!');
+        window.location.href = '/'; // O usar navigate si fuera un componente funcional con router
+      } else {
+        alert('Error al guardar el ticket');
+      }
+    } catch (error) {
+      console.error('Save error:', error);
+      alert('Error de conexión');
+    } finally {
       setLoading(false);
-      alert('Ticket guardado correctamente (simulado)');
-    }, 1000);
+    }
   };
 
   return (

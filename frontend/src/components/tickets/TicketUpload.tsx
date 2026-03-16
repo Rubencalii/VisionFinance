@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileImage, ShieldCheck, Loader2, X } from 'lucide-react';
+import { Upload, ShieldCheck, Loader2, X } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
