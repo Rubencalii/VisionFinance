@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  name        String?
+  api_key_enc String?
+  createdAt   DateTime @default(now())
+  tickets     Ticket[]
+  budgets     Budget[]
+}
+
+model Ticket {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  imageUrl    String
+  merchant    String
+  date        DateTime
+  subtotal    Decimal
+  vat         Decimal
+  total       Decimal
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  status      String   @default("pending") // pending, reviewed, sent
+  notes       String?
+  createdAt   DateTime @default(now())
+}
+
+model Category {
+  id       String   @id @default(uuid())
+  name     String   @unique
+  color    String?
+  icon     String?
+  keywords String[]
+  tickets  Ticket[]
+  budgets  Budget[]
+}
+
+model Budget {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+  amount     Decimal
+  period     String   // monthly, quarterly
+  startDate  DateTime
+  createdAt  DateTime @default(now())
+}
