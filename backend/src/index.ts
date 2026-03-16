@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
+import userRoutes from './routes/user';
+import ocrRoutes from './routes/ocr';
 import { authMiddleware } from './middleware/auth';
 
 dotenv.config();
@@ -14,6 +16,10 @@ app.use(express.json());
 
 // Public routes
 app.use('/api/auth', authRoutes);
+
+// Protected routes
+app.use('/api/user', userRoutes);
+app.use('/api/ocr', ocrRoutes);
 
 // Mock Health check
 app.get('/api/health', (req: Request, res: Response) => {
