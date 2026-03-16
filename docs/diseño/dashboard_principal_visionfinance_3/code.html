@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "navy": "#0f172a",
+                        "emerald": "#10b981",
+                        "background-light": "#f8fafd",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>VisionFinance - Scan Ticket</title>
+</head>
+<body class="bg-background-light font-display text-slate-900 overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex flex-col bg-white border-r border-slate-200">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-white">account_balance_wallet</span>
+</div>
+<div>
+<h1 class="text-slate-900 font-bold text-lg leading-none">VisionFinance</h1>
+<p class="text-slate-500 text-xs font-medium">Fintech Solutions</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span>My Tickets</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">document_scanner</span>
+<span>Scan Ticket</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:bg-red-50 hover:text-red-600 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-y-auto">
+<header class="h-16 flex items-center justify-between px-8 bg-white border-b border-slate-200 sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold text-slate-900">Scan Ticket 📸</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-sm font-semibold leading-none">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Admin</p>
+</div>
+<img alt="Profile" class="w-10 h-10 rounded-full border border-slate-200 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWQQdjKeApddbk9MLdr4MwYSzmosfMxIim1INILv7RT7T0C8USYi5Wmf1Xmg_ozs91vi_NpuY2akFp-oKZF4aMDHrybnsKoXIetJYnmxMkZWfIM4pQB4yAaWsKpt-U5n7O0Eq6MF3VV6pfGTILR6hTLilIPNUBdXhWa_fPmsd4RTPA7-SDCd64CWy_iKixohaLaowihwrfSAGnLAauw5CObRq6RtToI77JiYEVWKUvYqEnM9s3uhrkrzwLjnF-mdfVs0-ofoDDv4"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-5xl mx-auto w-full space-y-8">
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-10 flex flex-col items-center text-center">
+<div class="max-w-xl mx-auto">
+<h3 class="text-2xl font-bold text-slate-900 mb-2">Upload your receipt</h3>
+<p class="text-slate-500 mb-8">Process your expenses in seconds. Our AI will automatically extract merchant, date, and total amount.</p>
+<div class="relative group">
+<div class="border-2 border-dashed border-slate-200 group-hover:border-primary/50 group-hover:bg-primary/5 rounded-2xl p-12 transition-all cursor-pointer bg-slate-50 flex flex-col items-center justify-center gap-4">
+<div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">cloud_upload</span>
+</div>
+<div class="space-y-1">
+<p class="text-base font-semibold text-slate-900">Drag &amp; drop ticket images here</p>
+<p class="text-sm text-slate-400">Supports JPG, PNG, PDF (Max 10MB)</p>
+</div>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 bg-primary text-white font-bold py-3 px-6 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">photo_camera</span>
+                                Take Photo
+                            </button>
+<button class="flex items-center justify-center gap-2 bg-navy text-white font-bold py-3 px-6 rounded-xl hover:bg-navy/90 transition-all">
+<span class="material-symbols-outlined">upload_file</span>
+                                Browse Files
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 border-t border-slate-200 px-10 py-4 flex flex-wrap justify-center gap-8">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-500">
+<span class="material-symbols-outlined text-emerald text-sm">check_circle</span>
+                        99.8% OCR Accuracy
+                    </div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-500">
+<span class="material-symbols-outlined text-emerald text-sm">check_circle</span>
+                        Automatic Categorization
+                    </div>
+<div class="flex items-center gap-2 text-xs font-medium text-slate-500">
+<span class="material-symbols-outlined text-emerald text-sm">check_circle</span>
+                        Fraud Detection
+                    </div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h4 class="text-lg font-bold text-slate-900">Recent Scans</h4>
+<button class="text-sm font-bold text-primary hover:underline">View History</button>
+</div>
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 border-b border-slate-100">
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Ticket</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Details</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Amount</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider text-center">OCR Status</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-sm">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="w-12 h-12 rounded-lg bg-slate-200 border border-slate-300 overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 animate-pulse">image</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-semibold text-slate-900">IMG_20231025.jpg</p>
+<p class="text-[10px] text-slate-500">Just now</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-slate-400 italic">Calculating...</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700">
+<span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></span>
+                                            OCR Processing
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right text-slate-400">
+<span class="material-symbols-outlined cursor-not-allowed opacity-50">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="relative w-12 h-12 rounded-lg border border-slate-200 overflow-hidden group">
+<img alt="Ticket" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoG8SerMWZ4Ek_-zPyVWWrbqN2NkvmcRzIslEo12bwXHdBaUqa_PsPRZZgzErh-4ncM_BOGQtXAWOd-oHZRE5GnQOWL4wblTixBAqHqycy0HbD2pZ4VaSYj4sM0Cxpdjgv4FGEQBBpBMO2y4sik-gj-tR5r87J8lZwVngf9DmnNKVHnFs8J7eLViUdtqdOviNCucCKLYuGVmSNFpi5gAQpY5ljWf6MChxiXaH-S2pkTcDA9HhudqRpsPEihNtyUYpSkL56fLXvXPw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-semibold text-slate-900">Starbucks Coffee</p>
+<p class="text-[10px] text-slate-500">Oct 24, 10:20 AM</p>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900">$5.45</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald/10 text-emerald">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                            OCR Verified
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-navy transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="relative w-12 h-12 rounded-lg border border-slate-200 overflow-hidden group">
+<img alt="Ticket" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNBnkUZSGFeV2UpPlR8sj9wU9c1-QNlbd6TBKjuNgMdQiP3kEexCjJw3JS_yffHi_3IvF2ozUGr_JBtoS_OlVNXRwvYj6g3k-Z4eEHxZZgTLOOu-oOT3pQE20C7CuRhtDvk1IN2QA2cGRzxSdSo1TTuq70MZgaotd-hYeaBApIKq44jw5W_-Z5TiItLvbvmMi30tSwIe_xNgXfVjC7cqn8pNRkTL6k9qw1Y-P1IOqqASJp-h-C0oVkmqha_MDaVAbPunXdEibaERw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-semibold text-slate-900">Shell Gas Station</p>
+<p class="text-[10px] text-slate-500">Oct 23, 04:15 PM</p>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900">$45.00</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                            Check Amount
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary font-bold hover:underline">Resolve</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="relative w-12 h-12 rounded-lg border border-slate-200 overflow-hidden group">
+<img alt="Ticket" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH9o46_4KYz7TraG76AjcuEeHlk5K6Wn9ITNxHPYocRItttp9SYfJj5Zlx7GT59MDF0ZqtrfUa1xM6zey6tcq-J6NN6AirIcLldJncE_R-hI_RWJ1H3vSWfbQqHEPg4vi71hCINUIyFTznudU1iwjrtlZ1mQHNieRMSXT9Oz-ESi389N5meU8htw3tKgpl9o8tfxDwgH6nBupRz2tX0UouHlet734ywE9cf-GB112DxO1PaEfnCaGUxtlRiQoOaVE3OtxzMfD4Bb4"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-semibold text-slate-900">Whole Foods Market</p>
+<p class="text-[10px] text-slate-500">Oct 22, 06:30 PM</p>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900">$82.40</p>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald/10 text-emerald">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                            OCR Verified
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-navy transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
