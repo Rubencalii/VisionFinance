@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import TicketUpload from '../tickets/TicketUpload';
 import TicketForm from '../tickets/TicketForm';
+import ExpensesChart from './ExpensesChart';
+import RecentActivities from './RecentActivities';
 import { Sparkles, History as HistoryIcon, TrendingUp, Wallet } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -42,8 +43,6 @@ const Dashboard: React.FC = () => {
       setStats(data);
     } catch (err) {
       console.error('Error fetching stats:', err);
-    } finally {
-      setLoadingStats(false);
     }
   };
 
@@ -103,6 +102,15 @@ const Dashboard: React.FC = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <ExpensesChart data={stats?.byCategory || {}} />
+        </div>
+        <div className="lg:col-span-1">
+          <RecentActivities tickets={stats?.recentTickets || []} />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
