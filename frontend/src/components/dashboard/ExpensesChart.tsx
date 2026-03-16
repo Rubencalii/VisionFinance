@@ -44,7 +44,7 @@ const ExpensesChart: React.FC<ExpensesChartProps> = ({ data }) => {
             <Tooltip 
               contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', color: '#f1f5f9' }}
               itemStyle={{ color: '#f1f5f9' }}
-              formatter={(value: number) => `${value.toFixed(2)}€`}
+              formatter={(value: any) => `${Number(value).toFixed(2)}€`}
             />
             <Legend verticalAlign="bottom" height={36}/>
           </PieChart>
