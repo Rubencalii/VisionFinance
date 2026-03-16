@@ -38,6 +38,18 @@ La seguridad es nuestra prioridad. Las API Keys de Anthropic se cifran mediante 
 3. **Fase 3 (Lanzamiento)**: Modelo freemium, Stripe e internacionalización.
 4. **Fase 4 (IA & Ecosistema)**: Smart Advisor y asistente tributario.
 
+## 🐳 Desarrollo con Docker
+
+Para levantar todo el entorno de desarrollo (App, API y Base de Datos) con un solo comando:
+
+```bash
+docker-compose up --build
+```
+
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:3000
+- **PostgreSQL**: puerto 5432
+
 ## 🚀 Próximas Mejoras e Ideas
 
 Para evolucionar VisionFinance hacia un producto líder, tenemos planeado:
