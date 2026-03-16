@@ -112,5 +112,6 @@
 | Fase 1 — MVP | App funcional en portfolio | 6–8 semanas |
 | Fase 2 — Producto real | Funcionalidades de pago | 4–5 semanas |
 | Fase 3 — Lanzamiento | Usuarios reales + Stripe | 3–4 semanas |
+| Fase 4 — IA & Intel. | Ventaja competitiva | 4–5 semanas |
 
 > La Fase 3 solo tiene sentido atacarla si tras la Fase 2 decides seguir adelante con el lanzamiento.
