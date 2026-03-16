@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Store, Tag, CreditCard, Search, Filter, ArrowRight } from 'lucide-react';
+import { Calendar, Store, Tag, Search, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const History: React.FC = () => {
-  const [tickets, setTickets] = useState<any[]>([]);
+  const [tickets, setTickets] = useState<{
+    id: string;
+    merchant: string;
+    date: string;
+    total: number;
+    category: { name: string };
+  }[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 

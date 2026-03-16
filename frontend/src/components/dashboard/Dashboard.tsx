@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import TicketUpload from '../tickets/TicketUpload';
 import TicketForm from '../tickets/TicketForm';
 import { Sparkles, History as HistoryIcon, TrendingUp, Wallet } from 'lucide-react';
@@ -14,6 +15,37 @@ const Dashboard: React.FC = () => {
   } | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
+  const [stats, setStats] = useState<{
+    totalSpent: number;
+    count: number;
+    byCategory: Record<string, number>;
+    recentTickets: {
+      id: string;
+      merchant: string;
+      total: number;
+      date: string;
+      category: { name: string };
+    }[];
+  } | null>(null);
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      const token = (await JSON.parse(localStorage.getItem('sb-vjofvpsmivlyfzhptxqb-auth-token') || '{}')).access_token;
+      const res = await fetch('http://localhost:3000/api/tickets/stats', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await res.json();
+      setStats(data);
+    } catch (err) {
+      console.error('Error fetching stats:', err);
+    } finally {
+      setLoadingStats(false);
+    }
+  };
 
   const handleUploadSuccess = async (url: string) => {
     setImageUrl(url);

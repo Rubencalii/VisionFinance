@@ -5,6 +5,13 @@ import { authMiddleware, AuthRequest } from '../middleware/auth';
 const prisma = new PrismaClient();
 const router = express.Router();
 
+interface TicketStats {
+  totalSpent: number;
+  count: number;
+  byCategory: Record<string, number>;
+  recentTickets: any[];
+}
+
 // 1. Get stats for Dashboard
 router.get('/stats', authMiddleware, async (req: AuthRequest, res: Response) => {
   const userId = req.user.id;
@@ -15,22 +22,24 @@ router.get('/stats', authMiddleware, async (req: AuthRequest, res: Response) => 
       include: { category: true }
     });
 
-    const totalSpent = tickets.reduce((sum, t) => sum + Number(t.total), 0);
+    const totalSpent = tickets.reduce((sum: number, t: any) => sum + Number(t.total), 0);
     const count = tickets.length;
     
     // Group by category
-    const byCategory = tickets.reduce((acc: any, t) => {
+    const byCategory = tickets.reduce((acc: Record<string, number>, t: any) => {
       const catName = t.category.name;
       acc[catName] = (acc[catName] || 0) + Number(t.total);
       return acc;
     }, {});
 
-    res.json({
+    const stats: TicketStats = {
       totalSpent,
       count,
       byCategory,
       recentTickets: tickets.slice(-5).reverse()
-    });
+    };
+
+    res.json(stats);
   } catch (error: any) {
     res.status(500).json({ error: 'Failed to fetch stats' });
   }
@@ -60,9 +69,9 @@ router.post('/', authMiddleware, async (req: AuthRequest, res: Response) => {
   try {
     // Ensure category exists or create it
     const category = await prisma.category.upsert({
-      where: { name: categoryName },
+      where: { name: categoryName || 'Others' },
       update: {},
-      create: { name: categoryName }
+      create: { name: categoryName || 'Others' }
     });
 
     const ticket = await prisma.ticket.create({
